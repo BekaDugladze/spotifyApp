@@ -24,7 +24,7 @@ export default class Main extends Component{
       }
          handleLogout = async () => {
           try {
-            const response = await fetch('https://spotify-back-0mab.onrender.com/logout', {
+            const response = await fetch('https://spotify-back-vsee.onrender.com/logout', {
               method: 'GET',
               credentials: 'include', // Include credentials for CORS
             });
@@ -51,7 +51,7 @@ export default class Main extends Component{
     
       profileData = async () => {
         try {
-          const response = await fetch('https://spotify-back-0mab.onrender.com/profile', {
+          const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
             method: 'GET',
             credentials: 'include',
           });
@@ -112,9 +112,9 @@ export default class Main extends Component{
                     </div>
                 ) : (
                     <>
-                        <a id='googleA' className='a' href='http://localhost:8090/auth/google'><FontAwesomeIcon icon={faGoogle} style={{margin: '0 10px 0 0'}}/>Login with Google</a>
-                        <a id='facebookA' className='a' href='http://localhost:8090/auth/facebook'><FontAwesomeIcon icon={faFacebook} style={{margin: '0 10px 0 0'}}/>Login with Facebook</a>
-                        <a id='spotifyA' className='a' href='http://localhost:8090/auth/spotify'><FontAwesomeIcon icon={faSpotify} style={{margin: '0 10px 0 0'}}/>Login with Spotify</a>
+                        <a id='googleA' className='a' href='https://spotify-back-vsee.onrender.com/auth/google'><FontAwesomeIcon icon={faGoogle} style={{margin: '0 10px 0 0'}}/>Login with Google</a>
+                        <a id='facebookA' className='a' href='https://spotify-back-vsee.onrender.com/auth/facebook'><FontAwesomeIcon icon={faFacebook} style={{margin: '0 10px 0 0'}}/>Login with Facebook</a>
+                        <a id='spotifyA' className='a' href='https://spotify-back-vsee.onrender.com/auth/spotify'><FontAwesomeIcon icon={faSpotify} style={{margin: '0 10px 0 0'}}/>Login with Spotify</a>
                     </>
                 )}
               </div>

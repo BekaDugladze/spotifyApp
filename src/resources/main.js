@@ -24,7 +24,7 @@ export default class Main extends Component{
       }
          handleLogout = async () => {
           try {
-            const response = await fetch('https://spotify-app-front-five.vercel.app/logout', {
+            const response = await fetch('https://spotify-back-0mab.onrender.com/logout', {
               method: 'GET',
               credentials: 'include', // Include credentials for CORS
             });
@@ -51,7 +51,7 @@ export default class Main extends Component{
     
       profileData = async () => {
         try {
-          const response = await fetch('https://spotify-app-front-five.vercel.app/profile', {
+          const response = await fetch('https://spotify-back-0mab.onrender.com/profile', {
             method: 'GET',
             credentials: 'include',
           });

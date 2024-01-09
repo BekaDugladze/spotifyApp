@@ -62,6 +62,7 @@ export default class Main extends Component{
           }
           const data = await response.json();  // Await the response.json() method
           this.setState({ authorized: true, username: data.message });  // Assuming the username is in the "message" property
+            console.log(data)
         } catch (err) {
           this.setState({ authorized: false });
           console.log(err.message);

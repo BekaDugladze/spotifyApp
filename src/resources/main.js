@@ -58,15 +58,15 @@ profileData = async () => {
     });
 
     if (!response.ok) {
-      alert('Unauthorized or other error:', response.status);
+      console.error('Unauthorized or other error:', response.status);
       this.setState({ authorized: false });
     }
 
     const data = await response.json();
-    alert('Profile data response:', data);
+    console.log('Profile data response:', data);
 
     if (data.message) {
-        alert(data.message)
+        console.log(data.message);
       this.setState({ authorized: true, username: data.message });
     } else {
       this.setState({ authorized: false });
@@ -74,12 +74,11 @@ profileData = async () => {
   } catch (err) {
     this.setState({ authorized: false });
     console.error('Error during profileData:', err);
-    alert('Error during profileData:', err);
   }
 };
     
-      componentDidMount() {
-          this.profileData();
+     async componentDidMount() {
+          await this.profileData();
           console.log('I work')
 }
       render() {

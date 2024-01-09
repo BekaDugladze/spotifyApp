@@ -132,6 +132,13 @@ profileData = async () => {
                 )}
               </div>
             )}
+                <h1
+                        style={{
+                            color: 'white',
+                            fontSize: '15px',
+                            fontFamily: 'Noto Sans Gothic',
+                        }}
+                        >{this.state.username}</h1>
           </header>
         );
       }

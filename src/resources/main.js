@@ -49,35 +49,29 @@ export default class Main extends Component{
         this.setState({ searchDiv: !prev });
       };
     
-
-profileData = async () => {
-  try {
-    const response = await axios.get('https://spotify-back-vsee.onrender.com/profile', {
-      withCredentials: true,
-    });
-
-    const data = response.data;
-    console.log('Profile data response:', data);
-
-    if (data.message) {
-      console.log(data.message);
-      this.setState({ authorized: true, username: data.message });
-    } else {
-      this.setState({ authorized: false });
-    }
-  } catch (err) {
-    this.setState({ authorized: false });
-    console.error('Error during profileData:', err);
-  }
-};
+      profileData = async () => {
+        try {
+          const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
+            method: 'GET',
+            credentials: 'include',
+          });
     
-     async componentDidMount() {
-          await this.profileData();
-          console.log('I work')
-}
+            if (!response.ok) {
+            console.log('Unauthorized');
+            this.setState({authorized: false});
+          }
+          const data = await response.json();  // Await the response.json() method
+          this.setState({ authorized: true, username: data.message });  // Assuming the username is in the "message" property
+        } catch (err) {
+          this.setState({ authorized: false });
+          console.log(err.message);
+        }
+      };
+      componentDidMount() {
+        this.profileData();
+      }
+    
       render() {
-          console.log(this.state.authorized)
-          console.log(this.state.username)
         return (
           <header className="head">
             <div className="logohead">
@@ -125,13 +119,6 @@ profileData = async () => {
                 )}
               </div>
             )}
-                <h1
-                        style={{
-                            color: 'white',
-                            fontSize: '15px',
-                            fontFamily: 'Noto Sans Gothic',
-                        }}
-                        >{this.state.username}</h1>
           </header>
         );
       }

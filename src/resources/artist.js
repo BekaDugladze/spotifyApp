@@ -17,7 +17,7 @@ export default class Artist extends Component {
     
     handleRandom = async () => {
       try {
-        const response = await fetch('https://spotify-back-vsee.onrender.com/artists/random', {
+        const response = await fetch('http://localhost:8090/artists/random', {
           method: 'GET',
         });
   
@@ -40,7 +40,7 @@ export default class Artist extends Component {
         
       handleList = async () => {
         try {
-          const response = await fetch('https://spotify-back-vsee.onrender.com/artists', {
+          const response = await fetch('http://localhost:8090/artists', {
             method: 'GET',
           });
     
@@ -58,7 +58,7 @@ export default class Artist extends Component {
     
       search = async () => {
         try {
-          const response = await fetch(`https://spotify-back-vsee.onrender.com/artists?query=${encodeURIComponent(this.state.searchQuery)}`, {
+          const response = await fetch(`http://localhost:8090/artists?query=${encodeURIComponent(this.state.searchQuery)}`, {
             method: 'GET',
             credentials: 'include',
           });

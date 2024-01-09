@@ -49,10 +49,6 @@ export default class Main extends Component{
         this.setState({ searchDiv: !prev });
       };
     
-      componentDidMount() {
-          console.log('I work')
-  this.profileData();
-}
 
 profileData = async () => {
   try {
@@ -82,6 +78,10 @@ profileData = async () => {
   }
 };
     
+      componentDidMount() {
+          this.profileData();
+          console.log('I work')
+}
       render() {
           console.log(this.state.authorized)
           console.log(this.state.username)

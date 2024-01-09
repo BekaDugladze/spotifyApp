@@ -62,15 +62,15 @@ profileData = async () => {
     });
 
     if (!response.ok) {
-      console.log('Unauthorized or other error:', response.status);
+      alert('Unauthorized or other error:', response.status);
       this.setState({ authorized: false });
     }
 
     const data = await response.json();
-    console.log('Profile data response:', data);
+    alert('Profile data response:', data);
 
     if (data.message) {
-        console.log(data.message)
+        alert(data.message)
       this.setState({ authorized: true, username: data.message });
     } else {
       this.setState({ authorized: false });
@@ -78,6 +78,7 @@ profileData = async () => {
   } catch (err) {
     this.setState({ authorized: false });
     console.error('Error during profileData:', err);
+    alert('Error during profileData:', err);
   }
 };
     

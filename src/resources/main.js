@@ -26,7 +26,7 @@ export default class Main extends Component{
           try {
             const response = await fetch('https://spotify-back-vsee.onrender.com/logout', {
               method: 'GET',
-              credentials: 'true', // Include credentials for CORS
+              credentials: 'include', // Include credentials for CORS
             });
       
             if (!response.ok) {
@@ -58,7 +58,7 @@ profileData = async () => {
   try {
     const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
       method: 'GET',
-      credentials: 'true',
+      credentials: 'include',
     });
 
     if (!response.ok) {

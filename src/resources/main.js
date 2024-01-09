@@ -52,21 +52,15 @@ export default class Main extends Component{
 
 profileData = async () => {
   try {
-    const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
-      method: 'GET',
-      credentials: 'include',
+    const response = await axios.get('https://spotify-back-vsee.onrender.com/profile', {
+      withCredentials: true,
     });
 
-    if (!response.ok) {
-      console.error('Unauthorized or other error:', response.status);
-      this.setState({ authorized: false });
-    }
-
-    const data = await response.json();
+    const data = response.data;
     console.log('Profile data response:', data);
 
     if (data.message) {
-        console.log(data.message);
+      console.log(data.message);
       this.setState({ authorized: true, username: data.message });
     } else {
       this.setState({ authorized: false });

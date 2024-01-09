@@ -24,7 +24,7 @@ export default class Main extends Component{
       }
          handleLogout = async () => {
           try {
-            const response = await fetch('http://localhost:8090/logout', {
+            const response = await fetch('https://spotify-app-front-five.vercel.app/logout', {
               method: 'GET',
               credentials: 'include', // Include credentials for CORS
             });
@@ -51,7 +51,7 @@ export default class Main extends Component{
     
       profileData = async () => {
         try {
-          const response = await fetch('http://localhost:8090/profile', {
+          const response = await fetch('https://spotify-app-front-five.vercel.app/profile', {
             method: 'GET',
             credentials: 'include',
           });

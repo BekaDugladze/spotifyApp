@@ -82,6 +82,8 @@ profileData = async () => {
 };
     
       render() {
+          console.log(this.state.authorized)
+          console.log(this.state.username)
         return (
           <header className="head">
             <div className="logohead">

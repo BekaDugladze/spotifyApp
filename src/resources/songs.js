@@ -17,7 +17,7 @@ export default class Song extends Component {
 
     handleList = async () => {
       try {
-        const response = await fetch('http://localhost:8090/songs', {
+        const response = await fetch('https://spotify-back-r0od.onrender.com/songs', {
           method: 'GET',
         });
   
@@ -35,7 +35,7 @@ export default class Song extends Component {
 
     handleRandom = async () => {
       try {
-        const response = await fetch('http://localhost:8090/random', {
+        const response = await fetch('https://spotify-back-r0od.onrender.com/random', {
           method: 'GET',
         });
   
@@ -61,7 +61,7 @@ export default class Song extends Component {
 
       search = async () => {
         try {
-          const response = await fetch(`http://localhost:8090/songs?query=${encodeURIComponent(this.state.searchQuery)}`, {
+          const response = await fetch(`https://spotify-back-r0od.onrender.com/songs?query=${encodeURIComponent(this.state.searchQuery)}`, {
             method: 'GET',
             credentials: 'include',
           });

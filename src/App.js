@@ -18,17 +18,13 @@ function App() {
     };
 }, []);
   return (
-    <>
-    <div className='web' style={{display: 'flex', flexDirection: 'row'}}>
+    <div style={{display: 'flex', flexDirection: 'row'}}>
       <div style={{display: 'flex', flexDirection: 'column', maxWidth: '25%', justifyContent:'space-between', alignContent:'space-between'}}>
         <Main />
         <Artist />
       </div>
       <Song />
     </div>
-
-  <div className='mobile'><h1>This Web isn't suitable for Mobile</h1></div>
-  </>
   );
 }
 

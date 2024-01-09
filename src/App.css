@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+.mobile{
+  display: none;
+}
+.web{
+  display: flex;
+}
+
+@media screen and (min-width: 168px) and (max-width: 500px) {
+  .mobile{
+    display: flex;
+  }
+  .web{
+    display: none;
+  }
+}

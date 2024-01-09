@@ -50,6 +50,7 @@ export default class Main extends Component{
       };
     
       componentDidMount() {
+          console.log('I work')
   this.profileData();
 }
 
@@ -69,6 +70,7 @@ profileData = async () => {
     console.log('Profile data response:', data);
 
     if (data.message) {
+        console.log(data.message)
       this.setState({ authorized: true, username: data.message });
     } else {
       this.setState({ authorized: false });

@@ -1,0 +1,50 @@
+
+::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+    position: absolute;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 5px hsla(235, 30%, 90%, 0.80);
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(51, 51, 51);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.songs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    background: #232323;
+    width: 100%;
+    padding: 50px 0;
+    border-radius: 25px;
+    align-items: center; height: 100vh; /* 100% of the viewport height */
+    overflow-y: auto; /* Enable vertical scroll when content overflows */
+    box-sizing: border-box;
+}
+.songs input{
+    outline: none;
+    border-radius: 25px;
+    padding: 3px 7px;
+    border: none;
+}
+.songUl{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.songUl li{
+    list-style: none;
+    text-decoration: none;
+}
+.songUl li p{
+    color: white;
+    font-size: 14px;
+    font-family: 'Noto Sans Gothic', sans-serif;
+    width: 100%;
+}

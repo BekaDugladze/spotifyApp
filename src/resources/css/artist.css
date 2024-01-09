@@ -1,0 +1,28 @@
+.artists{
+    height: fit-content;
+    padding: 5px 0;
+    background: #232323;
+    border-radius: 25px;
+    max-height: 60vh;
+    width: 100%;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.artistUl{
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    padding: 0;
+}
+.artistUl li{
+    background: azure;
+    border-radius: 25px;
+    padding: 5px 10px;
+    list-style: none;
+    margin: 5px 0;
+    text-align: center;
+    font-family: 'Noto Sans Gothic', sans-serif;
+}

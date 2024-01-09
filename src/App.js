@@ -24,6 +24,7 @@ function App() {
         <Artist />
       </div>
       <Song />
+  <div className='mobile'><h1>This Web isn't suitable for Mobile</h1></div>
     </div>
   );
 }

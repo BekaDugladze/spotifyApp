@@ -50,25 +50,26 @@ export default class Main extends Component{
       };
     
       profileData = async () => {
-  try {
-    const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
-      method: 'GET',
-      credentials: 'include',
-    });
-
-    if (!response.ok) {
-      throw new Error('Unauthorized');
-    }
-
-    const data = await response.json();
-    this.setState({ authorized: true, username: data.message });
-  } catch (err) {
-    this.setState({ authorized: false });
-    console.error('Error during profile data retrieval:', err);
-    alert(err.message);
-  }
-};
-     componentDidMount() {
+        try {
+          const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
+            method: 'GET',
+            credentials: 'include',
+            body: this.state.username
+          });
+    
+            if (!response.ok) {
+            console.log('Unauthorized');
+            this.setState({authorized: false});
+          }
+          const data = await response.json();  // Await the response.json() method
+          console.log(data);
+          this.setState({ authorized: true, username: data.message });  // Assuming the username is in the "message" property
+        } catch (err) {
+          this.setState({ authorized: false });
+          console.log(err.message);
+        }
+      };
+      componentDidMount() {
         this.profileData();
       }
     
@@ -120,14 +121,6 @@ export default class Main extends Component{
                 )}
               </div>
             )}
-                <h1
-                        style={{
-                            color: 'white',
-                            fontSize: '15px',
-                            fontFamily: 'Noto Sans Gothic',
-                        }}
-                        >{this.state.username}</h1>
-                        <button id='logout' onClick={() => this.handleLogout()}>logout</button>
           </header>
         );
       }

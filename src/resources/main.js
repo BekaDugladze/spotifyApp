@@ -53,7 +53,7 @@ export default class Main extends Component{
         try {
           const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
             method: 'GET',
-            credentials: true,
+            credentials: 'include',
           });
     
             if (!response.ok) {

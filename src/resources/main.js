@@ -16,7 +16,7 @@ export default class Main extends Component{
         this.state = {
           authorized: false,
           userBut: false,
-          username: '',
+          username: null,
           searchDiv: false,
           searchQuery: '',
           list: null,
@@ -54,24 +54,25 @@ export default class Main extends Component{
           const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
             method: 'GET',
             credentials: 'include',
+            body: this.state.username
           });
     
             if (!response.ok) {
-              console.log(`Error: ${response.status} - ${response.statusText}`);
-              this.setState({ authorized: false });
-            }
+            console.log('Unauthorized');
+            this.setState({authorized: false});
+          }
           const data = await response.json();  // Await the response.json() method
           console.log(data);
-          this.setState({ authorized: true, username: data.message });
+          this.setState({ authorized: true, username: data.message });  // Assuming the username is in the "message" property
         } catch (err) {
           this.setState({ authorized: false });
           console.log(err.message);
         }
       };
-      
-    componentDidMount() {
-    this.profileData();
-  }
+      componentDidMount() {
+        this.profileData();
+      }
+    
       render() {
         return (
           <header className="head">

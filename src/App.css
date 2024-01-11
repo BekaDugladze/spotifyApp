@@ -43,11 +43,12 @@
   display: flex;
 }
 
-@media screen and (min-width: 168px) and (max-width: 500px) {
+@media screen and (min-width: 0px) and (max-width: 800px) {
   .mobile{
-    display: flex;
+    display: flex ;
+    color: white;
   }
   .web{
-    display: none;
+    display: none !important;
   }
 }

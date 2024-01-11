@@ -53,7 +53,7 @@ export default class Main extends Component{
         try {
           const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
             method: 'GET',
-            credentials: 'include',
+            credentials: true,
           });
     
             if (!response.ok) {
@@ -68,9 +68,10 @@ export default class Main extends Component{
           console.log(err.message);
         }
       };
-    
-        this.profileData();
-    
+      
+    componentDidMount() {
+    this.profileData();
+  }
       render() {
         return (
           <header className="head">

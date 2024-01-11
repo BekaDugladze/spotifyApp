@@ -61,16 +61,15 @@ export default class Main extends Component{
     }
 
     const data = await response.json();
-    const username = data.message;
-    this.setState({ authorized: true, username });
+    this.setState({ authorized: true, username: data.message });
   } catch (err) {
     this.setState({ authorized: false });
     console.error('Error during profile data retrieval:', err);
     alert(err.message);
   }
 };
-     async componentDidMount() {
-        await this.profileData();
+     componentDidMount() {
+        this.profileData();
       }
     
       render() {
@@ -121,6 +120,14 @@ export default class Main extends Component{
                 )}
               </div>
             )}
+                <h1
+                        style={{
+                            color: 'white',
+                            fontSize: '15px',
+                            fontFamily: 'Noto Sans Gothic',
+                        }}
+                        >{this.state.username}</h1>
+                        <button id='logout' onClick={() => this.handleLogout()}>logout</button>
           </header>
         );
       }

@@ -49,7 +49,7 @@ export default class Main extends Component{
         this.setState({ searchDiv: !prev });
       };
     
-      profileData = async () => {
+      async profileData() {
         try {
           const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
             method: 'GET',

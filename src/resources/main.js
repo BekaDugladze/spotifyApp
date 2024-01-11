@@ -68,10 +68,8 @@ export default class Main extends Component{
           console.log(err.message);
         }
       };
-      componentDidMount() {
+    
         this.profileData();
-          console.log(this.profileData())
-      }
     
       render() {
         return (

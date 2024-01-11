@@ -57,18 +57,19 @@ export default class Main extends Component{
           });
     
             if (!response.ok) {
-            console.log('Unauthorized');
+            alert('Unauthorized');
             this.setState({authorized: false});
           }
           const data = await response.json();  // Await the response.json() method
           this.setState({ authorized: true, username: data.message });  // Assuming the username is in the "message" property
+            alert(data)
         } catch (err) {
           this.setState({ authorized: false });
-          console.log(err.message);
+          alert(err.message);
         }
       };
-      componentDidMount() {
-        this.profileData();
+     async componentDidMount() {
+        await this.profileData();
       }
     
       render() {

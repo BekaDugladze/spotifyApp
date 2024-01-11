@@ -50,24 +50,25 @@ export default class Main extends Component{
       };
     
       profileData = async () => {
-        try {
-          const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
-            method: 'GET',
-            credentials: 'include',
-          });
-    
-            if (!response.ok) {
-            alert('Unauthorized');
-            this.setState({authorized: false});
-          }
-          const data = await response.json();  // Await the response.json() method
-          this.setState({ authorized: true, username: data.message });  // Assuming the username is in the "message" property
-            alert(data)
-        } catch (err) {
-          this.setState({ authorized: false });
-          alert(err.message);
-        }
-      };
+  try {
+    const response = await fetch('https://spotify-back-vsee.onrender.com/profile', {
+      method: 'GET',
+      credentials: 'include',
+    });
+
+    if (!response.ok) {
+      throw new Error('Unauthorized');
+    }
+
+    const data = await response.json();
+    const username = data.message;
+    this.setState({ authorized: true, username });
+  } catch (err) {
+    this.setState({ authorized: false });
+    console.error('Error during profile data retrieval:', err);
+    alert(err.message);
+  }
+};
      async componentDidMount() {
         await this.profileData();
       }
